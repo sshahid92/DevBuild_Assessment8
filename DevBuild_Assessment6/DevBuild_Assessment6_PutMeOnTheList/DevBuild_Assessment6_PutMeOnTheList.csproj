@@ -163,6 +163,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DatabaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IdentityController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -172,6 +173,7 @@
     <Compile Include="Models\Guest.cs">
       <DependentUpon>PartyModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\PartyModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -187,6 +189,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PartyModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\RegistrationModel.cs" />
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>PartyModel.tt</DependentUpon>
     </Compile>
@@ -255,6 +258,8 @@
     <Content Include="Views\Database\EditGuest.cshtml" />
     <Content Include="Views\Database\GuestIndex.cshtml" />
     <Content Include="Views\Database\FindGuestDish.cshtml" />
+    <Content Include="Views\Identity\Registration.cshtml" />
+    <Content Include="Views\Identity\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

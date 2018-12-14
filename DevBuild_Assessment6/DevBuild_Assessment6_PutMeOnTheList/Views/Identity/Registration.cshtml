@@ -1,0 +1,17 @@
+﻿@model DevBuild_Assessment6_PutMeOnTheList.Models.RegistrationModel
+@{
+    ViewBag.Title = "Registration";
+}
+
+<h2>Registration</h2>
+
+<form action="~/Identity/Registration" method="post">
+    @Html.ValidationSummary()
+    UserName<input type="text" name="UserName" /><br />
+    Email<input type="text" name="Email" /><br />
+    Password<input type="password" name="Password" /><br />
+    Confirm Password<input type="password" name="ConfirmPassword" /><br />
+
+    <input type="submit" class="btn-default" />
+</form>
+

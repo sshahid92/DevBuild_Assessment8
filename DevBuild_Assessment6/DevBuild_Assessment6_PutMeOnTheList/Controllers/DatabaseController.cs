@@ -11,19 +11,21 @@ namespace DevBuild_Assessment6_PutMeOnTheList.Controllers
     public class DatabaseController : Controller
     {
         // GET: Database
+        [Authorize]
         public ActionResult Index()
         {
             ShahPartyDBEntities Orm = new ShahPartyDBEntities();
             ViewBag.DishList = Orm.Dishes.ToList();
             return View();
         }
+        [Authorize]
         public ActionResult GuestIndex()
         {
             ShahPartyDBEntities Orm = new ShahPartyDBEntities();
             ViewBag.GuestList = Orm.Guests.ToList();
             return View();
         }
-
+        [Authorize]
         public ActionResult SaveGuest(Guest addGuest)
         {
             ShahPartyDBEntities Orm = new ShahPartyDBEntities();
@@ -31,6 +33,7 @@ namespace DevBuild_Assessment6_PutMeOnTheList.Controllers
             Orm.SaveChanges();
             return RedirectToAction("RsvpComplete", "Home", addGuest);
         }
+        [Authorize]
         public ActionResult SaveDish(Dish addDish)
         {
             ShahPartyDBEntities Orm = new ShahPartyDBEntities();
@@ -38,7 +41,7 @@ namespace DevBuild_Assessment6_PutMeOnTheList.Controllers
             Orm.SaveChanges();
             return RedirectToAction("ThankYouForDish", "Home", addDish);
         }
-
+        [Authorize]
         public ActionResult EditGuest(int GuestID)
         {
             ShahPartyDBEntities Orm = new ShahPartyDBEntities();
@@ -46,7 +49,7 @@ namespace DevBuild_Assessment6_PutMeOnTheList.Controllers
 
             return View(found);
         }
-
+        [Authorize]
         public ActionResult EditDish(int DishID)
         {
             ShahPartyDBEntities Orm = new ShahPartyDBEntities();
@@ -54,12 +57,12 @@ namespace DevBuild_Assessment6_PutMeOnTheList.Controllers
 
             return View(found);
         }
-
+        [Authorize]
         public ActionResult FindGuestDish()
         {
             return View();
         }
-
+        [Authorize]
         [HttpPost]
         public ActionResult FindGuestDish(string FirstName, string LastName)
         {
@@ -67,7 +70,7 @@ namespace DevBuild_Assessment6_PutMeOnTheList.Controllers
             var guestList = Orm.Guests.ToList();
 
             var found = from guest in guestList
-                        where guest.FirstName == FirstName && guest.LastName == LastName
+                        where guest.FirstName.ToLower() == FirstName.ToLower() && guest.LastName.ToLower() == LastName.ToLower()
                         select guest;
             if(found.Any())
             {
@@ -79,7 +82,7 @@ namespace DevBuild_Assessment6_PutMeOnTheList.Controllers
             return View();
             
         }
-
+        [Authorize]
         public ActionResult SaveEditGuest(Guest updateGuest)
         {
             ShahPartyDBEntities Orm = new ShahPartyDBEntities();
@@ -97,7 +100,7 @@ namespace DevBuild_Assessment6_PutMeOnTheList.Controllers
             return RedirectToAction("GuestIndex");
 
         }
-
+        [Authorize]
         public ActionResult SaveEditDish(Dish updateDish)
         {
             ShahPartyDBEntities Orm = new ShahPartyDBEntities();
@@ -115,7 +118,7 @@ namespace DevBuild_Assessment6_PutMeOnTheList.Controllers
             return RedirectToAction("Index");
 
         }
-
+        [Authorize]
         public ActionResult DeleteGuest(int GuestID)
         {
             ShahPartyDBEntities Orm = new ShahPartyDBEntities();
@@ -126,7 +129,7 @@ namespace DevBuild_Assessment6_PutMeOnTheList.Controllers
 
             return RedirectToAction("GuestIndex");
         }
-
+        [Authorize]
         public ActionResult DeleteDish(int DishID)
         {
             ShahPartyDBEntities Orm = new ShahPartyDBEntities();
