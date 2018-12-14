@@ -1,0 +1,48 @@
+﻿@model DevBuild_Assessment6_PutMeOnTheList.Models.Guest
+@{
+    ViewBag.Title = "Edit Guest";
+}
+
+<h2>Edit Guest</h2>
+
+<h3>Please fill out the form to edit the Guest.</h3>
+<form action="~/Database/SaveEditGuest" name="rsvpInfo" method="post">
+    <fieldset>
+        <legend>Team Member Information</legend>
+        <input type="hidden" name="GuestID" value="@Model.GuestID" />
+        First Name:<br />
+        <input type="text" name="FirstName" id="firstname" value="@Model.FirstName"><br />
+        <p id="fnMessage"></p>
+
+        Last Name:<br />
+        <input type="text" name="LastName" id="lastname" value="@Model.LastName"><br />
+        <p id="lnMessage"></p>
+
+        Email:<br />
+        <input type="email" name="EmailAddress" id="email" value="@Model.EmailAddress"><br />
+        <p id="emailMessage"></p>
+
+        Will you be attending?<br />
+        <input id="yes" type="radio" name="attendance" value="yes" onclick="isGoing()"> Yes
+        <input id="no" type="radio" name="attendance" value="no" onclick="isGoing()"> No<br />
+        <p id="isGoingMessage"></p>
+        <div id="isGoing">
+            Which date would you like to attend?
+            <input id="date1" type="radio" name="AttendanceDate" value="December 8, 2018 8:00 PM"> December 8, 2018 8:00 PM
+            <input id="date2" type="radio" name="AttendanceDate" value="December 9, 2018 8:00 PM"> December 9, 2018 8:00 PM<br />
+            <p id="dateMessage"></p>
+
+            Will you be bringing a guest?<br />
+            <input id="guestYes" type="radio" name="guest" value="yes" onclick="isBringGuest()"> Yes
+            <input id="guestNo" type="radio" name="guest" value="no" onclick="isBringGuest()"> No<br />
+            <p id="guestMessage"></p>
+            <div id="guestInfo">
+                <legend>Guest Information</legend>
+                Guest Name:<br />
+                <input type="text" name="Guest1" id="guestName" value="@Model.Guest1"><br />
+                <p id="guestfnMessage"></p>
+            </div>
+        </div>
+    </fieldset>
+    <input id="rsvp" type="submit" value="Update">
+</form>

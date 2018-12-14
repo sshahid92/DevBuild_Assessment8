@@ -1,0 +1,49 @@
+﻿@model DevBuild_Assessment6_PutMeOnTheList.Models.Guest
+@{
+    ViewBag.Title = "Guest List";
+}
+
+<h2>Guest List</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            GuestID
+        </th>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Attendance Date
+        </th>
+        <th>
+            Email Address
+        </th>
+        <th>
+            Plus One
+        </th>
+
+    </tr>
+
+    @foreach (var guest in ViewBag.GuestList)
+    {
+        <tr>
+            <td>@guest.GuestID</td>
+            <td>@guest.FirstName</td>
+            <td>@guest.LastName</td>
+            <td>@guest.AttendanceDate</td>
+            <td>@guest.EmailAddress</td>
+            <td>@guest.Guest1</td>
+            <td><a href="~/Database/EditGuest?GuestID=@guest.GuestID" class="btn-primary"> Edit this guest</a></td>
+            <td><a href="~/Database/DeleteGuest?GuestID=@guest.GuestID" class="btn-primary"> Delete this guest</a></td>
+        </tr>
+    }
+
+
+</table>
+
+<a href="~/Home/Rsvp" class="btn-group">Add a guest</a>
+

@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Rsvp";
+}
+
+<h1>RSVP Information</h1>
+<h3>Please fill out the form to RSVP.</h3>
+<form name="rsvpInfo" method="post">
+    <fieldset>
+        <legend>Team Member Information</legend>
+        <input type="hidden" name="GuestID" />
+        First Name:<br />
+        <input type="text" name="FirstName" id="firstname" required><br />
+        <p id="fnMessage"></p>
+
+        Last Name:<br />
+        <input type="text" name="LastName" id="lastname" required><br />
+        <p id="lnMessage"></p>
+
+        Email:<br />
+        <input type="email" name="EmailAddress" id="email" required><br />
+        <p id="emailMessage"></p>
+
+        Will you be attending?<br />
+        <input id="yes" type="radio" name="attendance" value="yes" onclick="isGoing()"> Yes
+        <input id="no" type="radio" name="attendance" value="no" onclick="isGoing()"> No<br />
+        <p id="isGoingMessage"></p>
+        <div id="isGoing">
+            Which date would you like to attend?
+            <input id="date1" type="radio" name="AttendanceDate" value="2018-12-08 08:00:00"> December 8, 2018 8:00 PM
+            <input id="date2" type="radio" name="AttendanceDate" value="2018-12-09 08:00:00"> December 9, 2018 8:00 PM<br />
+            <p id="dateMessage"></p>
+
+            Will you be bringing a guest?<br />
+            <input id="guestYes" type="radio" name="guest" value="yes" onclick="isBringGuest()"> Yes
+            <input id="guestNo" type="radio" name="guest" value="no" onclick="isBringGuest()"> No<br />
+            <p id="guestMessage"></p>
+            <div id="guestInfo">
+                <legend>Guest Information</legend>
+                Guest Name:<br />
+                <input type="text" name="Guest1" id="guestName"><br />
+                <p id="guestNameMessage"></p>
+            </div>
+        </div>
+    </fieldset>
+    <input id="rsvp" type="submit" value="RSVP">
+</form>

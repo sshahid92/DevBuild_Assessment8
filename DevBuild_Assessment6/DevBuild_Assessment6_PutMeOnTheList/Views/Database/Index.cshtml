@@ -1,0 +1,49 @@
+﻿@model DevBuild_Assessment6_PutMeOnTheList.Models.Dish
+@{
+    ViewBag.Title = "Party Dishes";
+}
+
+<h2>Dishes</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            DishID
+        </th>
+        <th>
+            Person Name
+        </th>
+        <th>
+            Phone Number
+        </th>
+        <th>
+            Dish Name
+        </th>
+        <th>
+            Dish Description
+        </th>
+        <th>
+            Dish Options
+        </th>
+
+    </tr>
+
+    @foreach (var dish in ViewBag.DishList)
+    {
+    <tr>
+        <td>@dish.DishID</td>
+        <td>@dish.PersonName</td>
+        <td>@dish.PhoneNumber</td>
+        <td>@dish.DishName</td>
+        <td>@dish.DishDescription</td>
+        <td>@dish.Option</td>
+        <td><a href="~/Database/EditDish?DishID=@dish.DishID" class="btn-primary"> Edit this dish</a></td>
+        <td><a href="~/Database/DeleteDish?DishID=@dish.DishID" class="btn-primary"> Delete this dish</a></td>
+    </tr>
+    }
+
+
+</table>
+
+<a href="~/Database/FindGuestDish" class="btn-group">Add a dish</a>
+

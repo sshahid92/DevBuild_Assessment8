@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Edit Dish";
+}
+
+<h2>Edit Dish</h2>
+
+@model DevBuild_Assessment6_PutMeOnTheList.Models.Dish
+
+<form action="~/Database/SaveEditDish" method="post">
+    <input type="hidden" name="DishID" value="@Model.DishID" />
+    <input type="hidden" name="GuestID" value="@Model.GuestID" />
+    Person Name:<br />
+    <input type="text" name="PersonName" value="@Model.PersonName" /><br />
+    <p id="nameMessage"></p>
+    Phone Number:<br />
+    <input type="tel" name="PhoneNumber" id="phone" value="@Model.PhoneNumber"><br />
+    <p id="phoneMessage"></p>
+    Dish Name:<br />
+    <input type="text" name="DishName" id="dishname" value="@Model.DishName"><br />
+    <p id="dishnameMessage"></p>
+    Dish Description:<br />
+    <input type="text" name="DishDescription" id="dishdes" value="@Model.DishDescription"><br />
+    <p id="dishdesMessage"></p>
+    Options:<br />
+    <input type="checkbox" name="Option" value="Gluten Free" /> Gluten Free<br />
+    <input type="checkbox" name="Option" value="Nut Free" /> Nut Free<br />
+    <input type="checkbox" name="Option" value="Vegan" /> Vegan<br />
+    <input type="checkbox" name="Option" value="Vegetarian" /> Vegetarian<br />
+    <input type="checkbox" name="Option" value="Halal" /> Halal<br />
+    <input type="checkbox" name="Option" value="Kosher" /> Kosher<br />
+    <input id="submitDish" type="submit" class="btn-default" />
+</form>
+

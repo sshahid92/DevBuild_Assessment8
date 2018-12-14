@@ -1,0 +1,43 @@
+﻿@model DevBuild_Assessment6_PutMeOnTheList.Models.Guest
+@{
+    ViewBag.Title = "Bring A Dish";
+}
+
+<h1>Dish Information</h1>
+<h3>Please fill out the dish information</h3>
+<form name="DishInfo" method="post">
+    <fieldset>
+        <legend>Dish Information</legend>
+        <input type="hidden" name="DishID" />
+        <p>Guest ID: @Model.GuestID</p>
+        <input type="hidden" name="GuestID" value="@Model.GuestID" />
+        Name:<br />
+        <input type="text" name="PersonName" id="name" value="@Model.FirstName @Model.LastName" required><br />
+        <p id="nameMessage"></p>
+        Phone Number:<br />
+        <input type="tel" name="PhoneNumber" id="phone" required><br />
+        <p id="phoneMessage"></p>
+        Dish Name:<br />
+        <input type="text" name="DishName" id="dishname" required><br />
+        <p id="dishnameMessage"></p>
+        Dish Description:<br />
+        <input type="text" name="DishDescription" id="dishdes" required><br />
+        <p id="dishdesMessage"></p>
+        Options:<br />
+        <input type="checkbox" name="Option" value="Gluten Free" /> Gluten Free<br />
+        <input type="checkbox" name="Option" value="Nut Free" /> Nut Free<br />
+        <input type="checkbox" name="Option" value="Vegan" /> Vegan<br />
+        <input type="checkbox" name="Option" value="Vegetarian" /> Vegetarian<br />
+        <input type="checkbox" name="Option" value="Halal" /> Halal<br />
+        <input type="checkbox" name="Option" value="Kosher" /> Kosher<br />
+        @*<select name="DishOptions">
+            <option value="Gluten Free">Gluten Free</option>
+            <option value="Nut Free">Nut Free</option>
+            <option value="Vegan">Vegan</option>
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="Halal">Halal</option>
+            <option value="Kosher">Kosher</option>
+        </select> <br />*@
+    </fieldset>
+    <input id="submitDish" type="submit" value="Submit Dish">
+</form>
